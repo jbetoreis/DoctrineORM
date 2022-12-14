@@ -1,0 +1,19 @@
+{
+    "name": "beto/doctrineorm",
+    "description": "Projeto Aprendizagem Doctrine ORM",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Beto\\Doctrineorm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Beto"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.13",
+        "symfony/cache": "^6.2"
+    }
+}
