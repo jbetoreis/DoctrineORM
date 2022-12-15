@@ -8,13 +8,23 @@ use Doctrine\ORM\Tools\Setup;
 
 class EntityManagerFactory
 {
-    public function getEntityManager():EntityManagerInterface
+    /**
+     * @return EntityManagerInterface
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function getEntityManager(): EntityManagerInterface
     {
         $rootDir = __DIR__ . '/../..';
-        $config = Setup::createAnnotationMetadataConfiguration([$rootDir . '/src' ], isDevMode: true);
-        $connection = ['driver' => 'sqlsrv', 'path' => $rootDir . '/var/data/banco.mdf'];
+        $config = Setup::createAnnotationMetadataConfiguration([
+            $rootDir . '/src'],
+            true // modo Desenvolvimento
+        );
+        $connection = [
+            'driver' => 'pdo_sqlite',
+            'path' => $rootDir . '/var/data/banco.sqlite'
+        ];
+
         return EntityManager::create($connection, $config);
     }
-}
 
-?>
+}
