@@ -1,6 +1,6 @@
 <?php
 
-namespace beto\doctrineorm\Helper;
+namespace Beto\DOCTRINEORM\Helper;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,7 +12,7 @@ class EntityManagerFactory
      * @return EntityManagerInterface
      * @throws \Doctrine\ORM\ORMException
      */
-    public function getEntityManager(): EntityManagerInterface
+    public function getEntityManager():EntityManagerInterface
     {
         $rootDir = __DIR__ . '/../..';
         $config = Setup::createAnnotationMetadataConfiguration([
@@ -20,8 +20,8 @@ class EntityManagerFactory
             true // modo Desenvolvimento
         );
         $connection = [
-            'driver' => 'pdo_sqlite',
-            'path' => $rootDir . '/var/data/banco.sqlite'
+            'driver' => 'pdo_pgsql',
+            'path' => $rootDir . '/var/data/banco.pgsql'
         ];
 
         return EntityManager::create($connection, $config);
