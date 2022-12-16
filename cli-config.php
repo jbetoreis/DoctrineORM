@@ -1,8 +1,8 @@
 <?php
-use Beto\DOCTRINEORM\Helper\EntityManagerFactory;
+use Beto\Doctrineorm\Helper\EntityManagerFactory;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
-require __DIR__ . '/vendor/autoload.php';
+require_once  __DIR__ . '/vendor/autoload.php';
 
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();

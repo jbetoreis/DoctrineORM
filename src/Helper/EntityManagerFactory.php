@@ -1,6 +1,6 @@
 <?php
 
-namespace Beto\DOCTRINEORM\Helper;
+namespace Beto\Doctrineorm\Helper;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -8,23 +8,19 @@ use Doctrine\ORM\Tools\Setup;
 
 class EntityManagerFactory
 {
-    /**
-     * @return EntityManagerInterface
-     * @throws \Doctrine\ORM\ORMException
-     */
-    public function getEntityManager():EntityManagerInterface
+    public function getEntityManager(): EntityManagerInterface
     {
         $rootDir = __DIR__ . '/../..';
-        $config = Setup::createAnnotationMetadataConfiguration([
-            $rootDir . '/src'],
-            true // modo Desenvolvimento
+
+        // é um array pq ele pode buscar em mais de um lugar
+        $config = Setup::createAnnotationMetadataConfiguration(
+            [$rootDir . '/src'],
+            true
         );
         $connection = [
             'driver' => 'pdo_pgsql',
             'path' => $rootDir . '/var/data/banco.pgsql'
         ];
-
         return EntityManager::create($connection, $config);
     }
-
-}
+}    
