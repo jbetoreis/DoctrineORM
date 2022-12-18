@@ -8,5 +8,4 @@ $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
 return ConsoleRunner::createHelperSet($entityManager);
-
 ?>
