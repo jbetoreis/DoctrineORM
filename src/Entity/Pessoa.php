@@ -26,6 +26,11 @@ class Pessoa{  // A classe é uma entidade
      */
     private string $email;
 
+    /**
+     * @Column(type="string")
+     */
+    private string $telefone;
+
     public function getId(): int{
         return $this->id;
     }
@@ -50,6 +55,15 @@ class Pessoa{  // A classe é uma entidade
 
     public function setEmail($email): self{
         $this->email = $email;
+        return $this;
+    }
+
+    public function getTelefone(): string{
+        return $this->telefone;
+    }
+
+    public function setTelefone($telefone): self{
+        $this->telefone = $telefone;
         return $this;
     }
 }

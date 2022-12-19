@@ -17,6 +17,7 @@
         "symfony/cache": "^6.2",
         "doctrine/annotations": "^1.14",
         "doctrine/dbal": "^3.2",
-        "symfony/yaml": "^5.4"
+        "symfony/yaml": "^5.4",
+        "doctrine/migrations": "^3.5"
     }
 }
